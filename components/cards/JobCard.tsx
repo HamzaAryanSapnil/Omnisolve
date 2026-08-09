@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import ROUTES from "@/constants/routes";
 import { processJobTitle } from "@/lib/utils";
 
 interface JobLocationProps {
@@ -36,6 +37,7 @@ const JobLocation = ({
 
 const JobCard = ({ job }: { job: Job }) => {
   const {
+    id,
     employer_logo,
     employer_website,
     job_employment_type,
@@ -45,7 +47,12 @@ const JobCard = ({ job }: { job: Job }) => {
     job_city,
     job_state,
     job_country,
+    isExternalApply,
   } = job;
+
+  const viewHref = isExternalApply
+    ? (job_apply_link ?? ROUTES.JOBS)
+    : ROUTES.JOB(id!);
 
   return (
     <section className="background-light900_dark200 light-border shadow-light100_darknone flex flex-col items-start gap-6 rounded-lg border p-6 sm:flex-row sm:p-8">
@@ -60,7 +67,7 @@ const JobCard = ({ job }: { job: Job }) => {
       <div className="flex items-center gap-6">
         {employer_logo ? (
           <Link
-            href={employer_website ?? "/jobs"}
+            href={employer_website ?? ROUTES.JOBS}
             className="background-light800_dark400 relative size-16 rounded-xl"
           >
             <Image
@@ -128,8 +135,9 @@ const JobCard = ({ job }: { job: Job }) => {
           </div>
 
           <Link
-            href={job_apply_link ?? "/jobs"}
-            target="_blank"
+            href={viewHref}
+            target={isExternalApply ? "_blank" : undefined}
+            rel={isExternalApply ? "noopener noreferrer" : undefined}
             className="flex items-center gap-2"
           >
             <p className="body-semibold primary-text-gradient">View job</p>

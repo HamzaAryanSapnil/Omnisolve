@@ -125,6 +125,11 @@ interface RecommendationParams {
 interface JobFilterParams {
   query: string;
   page: string;
+  useLocalFilter?: boolean;
+}
+
+interface GetJobParams {
+  jobId: string;
 }
 
 interface UpdateUserParams {

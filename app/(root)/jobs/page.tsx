@@ -9,17 +9,23 @@ import {
 
 const Page = async ({ searchParams }: RouteParams) => {
   const { query, location, page } = await searchParams;
-  const userLocation = await fetchLocation();
 
-  const jobs = await fetchJobs({
-    query: `${query}, ${location}` || `Software Engineer in ${userLocation}`,
+  const [userLocation, countries] = await Promise.all([
+    fetchLocation(),
+    fetchCountries(),
+  ]);
+
+  const userQuery = [query, location].filter(Boolean).join(", ");
+  const searchQuery =
+    userQuery || `Software Engineer in ${userLocation ?? "Remote"}`;
+
+  const { jobs, isNext } = await fetchJobs({
+    query: searchQuery,
     page: page ?? 1,
+    useLocalFilter: Boolean(userQuery),
   });
 
-  const countries = await fetchCountries();
   const parsedPage = parseInt(page ?? 1);
-
-  console.log(jobs);
 
   return (
     <>
@@ -42,8 +48,8 @@ const Page = async ({ searchParams }: RouteParams) => {
         )}
       </section>
 
-      {jobs?.length > 0 && (
-        <Pagination page={parsedPage} isNext={jobs?.length === 10} />
+      {(jobs?.length > 0 || parsedPage > 1) && (
+        <Pagination page={parsedPage} isNext={isNext} />
       )}
     </>
   );
