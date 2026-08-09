@@ -27,33 +27,34 @@ const LocalSearch = ({
   const router = useRouter();
   const searchParams = useSearchParams();
   const query = searchParams.get("query") || "";
+  const paramsString = searchParams.toString();
 
   const [searchQuery, setSearchQuery] = useState(query);
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
+      if (searchQuery === query) return;
+
       if (searchQuery) {
         const newUrl = formUrlQuery({
-          params: searchParams.toString(),
+          params: paramsString,
           key: "query",
           value: searchQuery,
         });
 
         router.push(newUrl, { scroll: false });
-      } else {
-        if (pathname === route) {
-          const newUrl = removeKeysFromUrlQuery({
-            params: searchParams.toString(),
-            keysToRemove: ["query"],
-          });
+      } else if (query && pathname === route) {
+        const newUrl = removeKeysFromUrlQuery({
+          params: paramsString,
+          keysToRemove: ["query"],
+        });
 
-          router.push(newUrl, { scroll: false });
-        }
+        router.push(newUrl, { scroll: false });
       }
     }, 300);
 
     return () => clearTimeout(delayDebounceFn);
-  }, [searchQuery, router, route, searchParams, pathname]);
+  }, [searchQuery, query, paramsString, router, route, pathname]);
 
   return (
     <div
