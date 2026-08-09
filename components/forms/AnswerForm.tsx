@@ -161,7 +161,9 @@ const AnswerForm = ({ questionId, questionTitle, questionContent }: Props) => {
       </div>
       <Form {...form}>
         <form
-          onSubmit={form.handleSubmit(handleSubmit)}
+          onSubmit={async (event) => {
+            await form.handleSubmit(handleSubmit)(event);
+          }}
           className="mt-6 flex w-full flex-col gap-10"
         >
           <FormField
