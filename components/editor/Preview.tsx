@@ -1,5 +1,7 @@
 import { Code } from "bright";
-import { MDXRemote } from "next-mdx-remote/rsc";
+import type { ComponentPropsWithoutRef } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 Code.theme = {
   light: "github-light",
@@ -12,15 +14,10 @@ export const Preview = ({ content }: { content: string }) => {
 
   return (
     <section className="markdown prose grid wrap-break-word">
-      <MDXRemote
-        source={formattedContent}
-        options={{
-          mdxOptions: {
-            format: "md",
-          },
-        }}
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
         components={{
-          pre: (props) => (
+          pre: (props: ComponentPropsWithoutRef<"pre">) => (
             <Code
               {...props}
               lineNumbers
@@ -28,7 +25,9 @@ export const Preview = ({ content }: { content: string }) => {
             />
           ),
         }}
-      />
+      >
+        {formattedContent}
+      </ReactMarkdown>
     </section>
   );
 };
