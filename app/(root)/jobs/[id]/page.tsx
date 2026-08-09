@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
+import EmployerLogo from "@/components/cards/EmployerLogo";
 import ROUTES from "@/constants/routes";
 import { getJob } from "@/lib/actions/job.action";
 import { processJobTitle } from "@/lib/utils";
@@ -61,27 +62,12 @@ const JobDetails = async ({ params }: RouteParams) => {
 
       <section className="background-light900_dark200 light-border mt-6 flex flex-col gap-8 rounded-lg border p-6 sm:p-8">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
-          {employer_logo ? (
-            <Link
-              href={employer_website ?? ROUTES.JOBS}
-              className="background-light800_dark400 relative size-20 shrink-0 rounded-xl"
-            >
-              <Image
-                src={employer_logo}
-                alt={`${employer_name} logo`}
-                fill
-                className="object-contain p-2"
-              />
-            </Link>
-          ) : (
-            <Image
-              src="/images/site-logo.svg"
-              alt="default site logo"
-              width={80}
-              height={80}
-              className="rounded-[10px]"
-            />
-          )}
+          <EmployerLogo
+            src={employer_logo}
+            alt={`${employer_name} logo`}
+            href={employer_website}
+            size={80}
+          />
 
           <div className="flex-1">
             <h1 className="h1-bold text-dark100_light900">
@@ -105,8 +91,8 @@ const JobDetails = async ({ params }: RouteParams) => {
               </div>
 
               {locationParts.length > 0 && (
-                <div className="background-light800_dark400 flex items-center gap-2 rounded-2xl px-3 py-1.5">
-                  {job_country && (
+                <div className="bg-light-800! dark:bg-dark-400! flex items-center gap-2 rounded-2xl px-3 py-1.5">
+                  {job_country ? (
                     <Image
                       src={`https://flagsapi.com/${job_country}/flat/64.png`}
                       alt="country flag"
@@ -114,8 +100,8 @@ const JobDetails = async ({ params }: RouteParams) => {
                       height={16}
                       className="rounded-full"
                     />
-                  )}
-                  <p className="body-medium text-dark400_light700">
+                  ) : null}
+                  <p className="body-medium text-dark-400! dark:text-light-700!">
                     {locationParts.join(", ")}
                   </p>
                 </div>

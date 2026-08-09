@@ -45,7 +45,7 @@ const JobsFilter = ({ countriesList }: JobsFilterProps) => {
       />
 
       <Select onValueChange={(value) => handleUpdateParams(value)}>
-        <SelectTrigger className="body-regular light-border background-light800_dark300 text-dark500_light700 line-clamp-1 flex min-h-[56px] items-center gap-3 border p-4 sm:max-w-[210px]">
+        <SelectTrigger className="body-regular light-border bg-light-800! dark:bg-dark-300! text-dark500_light700 data-placeholder:text-dark-500! dark:data-placeholder:text-light-700! line-clamp-1 flex min-h-[56px] items-center gap-3 border p-4 shadow-none sm:max-w-[210px]">
           <Image
             src="/icons/carbon-location.svg"
             alt="location"

@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import EmployerLogo from "@/components/cards/EmployerLogo";
 import ROUTES from "@/constants/routes";
 import { processJobTitle } from "@/lib/utils";
 
@@ -17,16 +18,18 @@ const JobLocation = ({
   job_state,
 }: JobLocationProps) => {
   return (
-    <div className="background-light800_dark400 flex items-center justify-end gap-2 rounded-2xl px-3 py-1.5">
-      <Image
-        src={`https://flagsapi.com/${job_country}/flat/64.png`}
-        alt="country symbol"
-        width={16}
-        height={16}
-        className="rounded-full"
-      />
+    <div className="bg-light-800! dark:bg-dark-400! flex items-center justify-end gap-2 rounded-2xl px-3 py-1.5">
+      {job_country ? (
+        <Image
+          src={`https://flagsapi.com/${job_country}/flat/64.png`}
+          alt="country symbol"
+          width={16}
+          height={16}
+          className="rounded-full"
+        />
+      ) : null}
 
-      <p className="body-medium text-dark400_light700">
+      <p className="body-medium text-dark-400! dark:text-light-700!">
         {job_city && `${job_city}, `}
         {job_state && `${job_state}, `}
         {job_country && `${job_country}`}
@@ -65,27 +68,12 @@ const JobCard = ({ job }: { job: Job }) => {
       </div>
 
       <div className="flex items-center gap-6">
-        {employer_logo ? (
-          <Link
-            href={employer_website ?? ROUTES.JOBS}
-            className="background-light800_dark400 relative size-16 rounded-xl"
-          >
-            <Image
-              src={employer_logo}
-              alt="company logo"
-              fill
-              className="size-full object-contain p-2"
-            />
-          </Link>
-        ) : (
-          <Image
-            src="/images/site-logo.svg"
-            alt="default site logo"
-            width={64}
-            height={64}
-            className="rounded-[10px]"
-          />
-        )}
+        <EmployerLogo
+          src={employer_logo}
+          alt="company logo"
+          href={employer_website}
+          size={64}
+        />
       </div>
 
       <div className="w-full">
@@ -103,7 +91,7 @@ const JobCard = ({ job }: { job: Job }) => {
           </div>
         </div>
 
-        <p className="body-regular text-dark500_light700  mt-2 line-clamp-2">
+        <p className="body-regular text-dark500_light700 mt-2 line-clamp-2">
           {job_description?.slice(0, 200)}
         </p>
 
