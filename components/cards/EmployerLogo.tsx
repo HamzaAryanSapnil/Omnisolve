@@ -22,33 +22,24 @@ const EmployerLogo = ({
   size = 64,
 }: EmployerLogoProps) => {
   const [logoSrc, setLogoSrc] = useState(src || FALLBACK_LOGO);
-  const isFallback = logoSrc === FALLBACK_LOGO;
+  const isRemote = /^https?:\/\//.test(logoSrc);
 
-  const image = isFallback ? (
-    <Image
-      src={FALLBACK_LOGO}
-      alt={alt}
-      width={size}
-      height={size}
-      className="rounded-[10px]"
-    />
-  ) : (
+  return (
     <Link
       href={href ?? ROUTES.JOBS}
-      className="bg-light-800! dark:bg-dark-400! relative shrink-0 rounded-xl"
+      className="bg-light-800! dark:bg-dark-400! relative shrink-0 overflow-hidden rounded-xl"
       style={{ width: size, height: size }}
     >
       <Image
         src={logoSrc}
         alt={alt}
         fill
+        unoptimized={isRemote}
         className="object-contain p-2"
         onError={() => setLogoSrc(FALLBACK_LOGO)}
       />
     </Link>
   );
-
-  return image;
 };
 
 export default EmployerLogo;
