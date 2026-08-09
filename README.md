@@ -1,22 +1,23 @@
-<div align="center">
+
 
 # Omnisolve: Community-Driven Developer Q&A Platform
 
-[![Next.js](https://img.shields.io/badge/-Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
-[![Tailwind CSS](https://img.shields.io/badge/-Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-[![NextAuth](https://img.shields.io/badge/-NextAuth-000000?style=for-the-badge&logo=auth0&logoColor=white)](https://authjs.dev/)
-[![OpenAI](https://img.shields.io/badge/-OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)](https://openai.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/YOUR_GITHUB_USERNAME/omnisolve?style=for-the-badge)](https://github.com/YOUR_GITHUB_USERNAME/omnisolve/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/YOUR_GITHUB_USERNAME/omnisolve?style=for-the-badge)](https://github.com/YOUR_GITHUB_USERNAME/omnisolve/network/members)
+[Next.js](https://nextjs.org/)
+[TypeScript](https://www.typescriptlang.org/)
+[MongoDB](https://www.mongodb.com/)
+[Tailwind CSS](https://tailwindcss.com/)
+[NextAuth](https://authjs.dev/)
+[OpenAI](https://openai.com/)
+[License: MIT](LICENSE)
+[GitHub stars](https://github.com/YOUR_GITHUB_USERNAME/omnisolve/stargazers)
+[GitHub forks](https://github.com/YOUR_GITHUB_USERNAME/omnisolve/network/members)
 
-<br />
+  
 
-<img src="https://github.com/user-attachments/assets/769882e6-bae6-4932-a117-829cf34f809f" alt="Omnisolve project banner" width="100%" />
 
-</div>
+
+
+
 
 ## Table of Contents
 
@@ -37,6 +38,8 @@
 
 ---
 
+
+
 ## Demo
 
 Here is a working live demo: [https://your-omnisolve-demo.vercel.app](https://your-omnisolve-demo.vercel.app)
@@ -45,15 +48,17 @@ For local development, run the app and open [http://localhost:3000](http://local
 
 ---
 
+
+
 ## Description
 
 **Omnisolve** is a community-driven Q&A platform for developers — inspired by Stack Overflow — where you can ask programming questions, share detailed answers, vote on quality content, and grow reputation through badges.
 
 It goes further with **AI-assisted answers**, personalized **recommendations**, **saved collections**, **global search**, and a **developer jobs** board. The goal is to help learners and professionals find clear solutions faster and stay connected with the developer community.
 
-This project is based on the Devoverflow / DevFlow application from [JavaScript Mastery’s Ultimate Next.js Course](https://www.jsmastery.pro/ultimate-next-course), rebranded and documented here as **Omnisolve** for portfolio use.
-
 ---
+
+
 
 ## Features
 
@@ -74,23 +79,31 @@ This project is based on the Devoverflow / DevFlow application from [JavaScript 
 
 ---
 
+
+
 ## Tech Stack
 
-| Category | Technologies |
-| --- | --- |
-| Framework | Next.js 15, React 19, TypeScript |
-| Auth | NextAuth (Auth.js) v5, bcryptjs |
-| Database | MongoDB, Mongoose |
-| UI | Tailwind CSS, ShadCN UI, Radix UI, Lucide |
-| Forms | React Hook Form, Zod |
-| Content | MDXEditor, next-mdx-remote, Bright |
-| AI | Vercel AI SDK (`ai`), `@ai-sdk/openai` |
-| Jobs | RapidAPI JSearch |
-| Tooling | ESLint, Prettier, Pino (logging) |
+
+| Category  | Technologies                              |
+| --------- | ----------------------------------------- |
+| Framework | Next.js 15, React 19, TypeScript          |
+| Auth      | NextAuth (Auth.js) v5, bcryptjs           |
+| Database  | MongoDB, Mongoose                         |
+| UI        | Tailwind CSS, ShadCN UI, Radix UI, Lucide |
+| Forms     | React Hook Form, Zod                      |
+| Content   | MDXEditor, next-mdx-remote, Bright        |
+| AI        | Vercel AI SDK (`ai`), `@ai-sdk/openai`    |
+| Jobs      | RapidAPI JSearch                          |
+| Tooling   | ESLint, Prettier, Pino (logging)          |
+
 
 ---
 
+
+
 ## Getting Started
+
+
 
 ### Prerequisites
 
@@ -106,6 +119,8 @@ You will also need API credentials for:
 - [OpenAI](https://platform.openai.com/) (AI answers)
 - [RapidAPI](https://rapidapi.com/) JSearch (jobs)
 
+
+
 ### Clone the repository
 
 ```bash
@@ -113,11 +128,15 @@ git clone https://github.com/YOUR_GITHUB_USERNAME/omnisolve.git
 cd omnisolve
 ```
 
+
+
 ### Install dependencies
 
 ```bash
 npm install
 ```
+
+
 
 ### Configure environment variables
 
@@ -140,6 +159,8 @@ npm run lint    # Run ESLint
 ```
 
 ---
+
+
 
 ## Environment Variables
 
@@ -170,19 +191,23 @@ NEXT_PUBLIC_API_BASE_URL=http://localhost:3000/api
 LOG_LEVEL=info
 ```
 
-| Variable | Purpose |
-| --- | --- |
-| `MONGODB_URI` | MongoDB connection string |
-| `OPENAI_API_KEY` | OpenAI API key for `/api/ai/answers` |
-| `NEXT_PUBLIC_RAPID_API_KEY` | RapidAPI key for the jobs page |
-| `AUTH_SECRET` | NextAuth / Auth.js secret |
-| `NEXTAUTH_URL` | App base URL for auth callbacks |
-| `AUTH_GOOGLE_ID` / `AUTH_GOOGLE_SECRET` | Google OAuth credentials |
-| `AUTH_GITHUB_ID` / `AUTH_GITHUB_SECRET` | GitHub OAuth credentials |
-| `NEXT_PUBLIC_API_BASE_URL` | Internal API base (defaults to `http://localhost:3000/api`) |
-| `LOG_LEVEL` | Pino log level (defaults to `info`) |
+
+| Variable                                | Purpose                                                     |
+| --------------------------------------- | ----------------------------------------------------------- |
+| `MONGODB_URI`                           | MongoDB connection string                                   |
+| `OPENAI_API_KEY`                        | OpenAI API key for `/api/ai/answers`                        |
+| `NEXT_PUBLIC_RAPID_API_KEY`             | RapidAPI key for the jobs page                              |
+| `AUTH_SECRET`                           | NextAuth / Auth.js secret                                   |
+| `NEXTAUTH_URL`                          | App base URL for auth callbacks                             |
+| `AUTH_GOOGLE_ID` / `AUTH_GOOGLE_SECRET` | Google OAuth credentials                                    |
+| `AUTH_GITHUB_ID` / `AUTH_GITHUB_SECRET` | GitHub OAuth credentials                                    |
+| `NEXT_PUBLIC_API_BASE_URL`              | Internal API base (defaults to `http://localhost:3000/api`) |
+| `LOG_LEVEL`                             | Pino log level (defaults to `info`)                         |
+
 
 ---
+
+
 
 ## Usage
 
@@ -194,6 +219,8 @@ LOG_LEVEL=info
 6. **Search** — Use the navbar global search or page-level local search to find content quickly.
 
 ---
+
+
 
 ## How to Contribute
 
@@ -209,6 +236,8 @@ Please keep PRs focused, follow existing code style, and avoid committing secret
 
 ---
 
+
+
 ## Bug Reporting
 
 If you find a bug:
@@ -218,6 +247,8 @@ If you find a bug:
 3. Include a clear title, steps to reproduce, expected vs actual behavior, and screenshots if helpful
 
 ---
+
+
 
 ## Todos / Future Improvements
 
@@ -229,6 +260,8 @@ If you find a bug:
 - [ ] Add a custom Omnisolve README thumbnail / brand assets
 
 ---
+
+
 
 ## Credits
 
@@ -248,6 +281,8 @@ Third-party technologies and services used in this project:
 
 ---
 
+
+
 ## References
 
 - [Next.js Documentation](https://nextjs.org/docs)
@@ -260,6 +295,8 @@ Third-party technologies and services used in this project:
 
 ---
 
+
+
 ## Contact
 
 If you have questions or feedback, feel free to reach out:
@@ -271,8 +308,11 @@ If you have questions or feedback, feel free to reach out:
 
 ---
 
+
+
 ## License
 
 This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
 
 - [MIT License info](https://opensource.org/licenses/MIT)
+
