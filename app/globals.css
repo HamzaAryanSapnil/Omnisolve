@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @plugin "@tailwindcss/typography";
+@plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -384,6 +385,7 @@
   margin-top: -140px;
   padding-bottom: 140px;
   display: block;
+  pointer-events: none;
 }
 
 .mdxeditor-toolbar {

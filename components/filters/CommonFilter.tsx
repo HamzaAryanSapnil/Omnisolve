@@ -57,9 +57,7 @@ const CommonFilter = ({
           )}
           aria-label="Filter options"
         >
-          <div className="line-clamp-1 flex-1 text-left">
-            <SelectValue placeholder="Select a filter" />
-          </div>
+          <SelectValue placeholder="Select a filter" />
         </SelectTrigger>
 
         <SelectContent>
