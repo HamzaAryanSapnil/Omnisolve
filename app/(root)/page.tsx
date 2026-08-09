@@ -14,7 +14,7 @@ import { EMPTY_QUESTION } from "@/constants/states";
 import { getQuestions } from "@/lib/actions/question.action";
 
 export const metadata: Metadata = {
-  title: "Dev Overflow | Home",
+  title: "Omnisolve | Home",
   description:
     "Discover different programming questions and answers with recommendations from the community.",
 };

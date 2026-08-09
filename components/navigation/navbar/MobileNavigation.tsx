@@ -40,11 +40,11 @@ const MobileNavigation = async () => {
             src="/images/site-logo.svg"
             width={23}
             height={23}
-            alt="Logo"
+            alt="Omnisolve Logo"
           />
 
           <p className="h2-bold font-space-grotesk text-dark-100 dark:text-light-900">
-            Dev<span className="text-primary-500">Flow</span>
+            Omni<span className="text-primary-500">solve</span>
           </p>
         </Link>
 

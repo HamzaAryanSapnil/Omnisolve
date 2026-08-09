@@ -252,7 +252,7 @@ If you find a bug:
 
 ## Todos / Future Improvements
 
-- [ ] Full UI rebrand from DevFlow naming to Omnisolve across the app
+- [x] Full UI rebrand from DevFlow naming to Omnisolve across the app
 - [ ] Deploy live demo and replace the placeholder demo URL
 - [ ] In-app notifications for answers, votes, and mentions
 - [ ] Admin / moderation tools
